@@ -1,0 +1,27 @@
+<ion-header no-border>
+  <ion-toolbar color="dark">
+    <ion-title>
+      Héctor's News
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content color="dark">
+  <!--
+   Implementamos grid para contemplar distintos dispositivos 
+   The fixed attribute tells Ionic’s grid to use the max-width 
+   corresponding to the current breakpoint, or 100% if not defined.
+  -->
+  <app-noticias [noticias]="noticias" ></app-noticias>
+
+  <!-- since prior tag called page 1, let`s call more pages-->
+  <ion-infinite-scroll threshold="150px" 
+                      (ionInfinite)="loadData( $event )"
+                      color="primary">
+    <ion-infinite-scroll-content loadingSpinner="crescent" 
+                                  loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>
